@@ -1,0 +1,80 @@
+{% extends "/public/base.html" %}
+
+{% block title %}Caesar's cipher{% endblock title %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+
+            <div class="col-6">
+                <h1 class="display-4">Caesar's cipher</h1>
+                <p>Welcome to Caesar's cipher encryption by Jan Verderber. You have a text field below, where you enter the text you want to encrypt. You can also choose
+                    the number with which you want to encrypt this text. <b>This app uses English alphabet characters, so please don't use any other characters.</b>
+                </p>
+
+                <!-- Button trigger modal -->
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                      What is Caesar's cipher?
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">What is Caesar's cipher:</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>
+                        In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift,
+                        is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter
+                        in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3,
+                        D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+                        The encryption step performed by a Caesar cipher is often incorporated as part of more complex schemes, such as the Vigenère cipher, and
+                        still has modern application in the ROT13 system. As with all single-alphabet substitution ciphers, the Caesar cipher is easily broken and
+                        in modern practice offers essentially no communications security.
+                        </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {% if message %}
+                <div class="alert alert-info mt-5">
+                    <b>{{ message }}</b>
+                </div>
+                {% endif %}
+
+                <form method="post" class="mt-5">
+                    <div class="form-group">
+                        <label for="text_input">Your input</label>
+                        <input type="text" class="form-control" id="text_input" name="text_input" placeholder="Your input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rot_number">Number for encryption (Choose between 1 to 25)</label>
+                        <input type="text" class="form-control" id="rot_number" name="rot_number" placeholder="Number for encryption" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                </form>
+
+            </div>
+
+            <div class="col">
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}
